@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'NATIONAL WATER AND ELECTRICITY COMPANY (NAWEC)',
 
     /*
     |--------------------------------------------------------------------------
