@@ -156,7 +156,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'admin',
+        'disk' => 'public',
 
         // Image and file upload path under the disk above.
         'directory' => [
@@ -219,7 +219,8 @@ return [
         | Top Navigation: use the class `.layout-top-nav` to remove the sidebar and have your links at the top navbar.
         |
         */
-        'layout' => ['sidebar-mini', 'sidebar-collapse', 'text-sm'],
+ 
+        'layout' => ['layout-navbar-fixed'],
 
         /*
         |--------------------------------------------------------------------------
