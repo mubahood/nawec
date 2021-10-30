@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Models\PowerStation;
+use Carbon\Carbon;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,7 +17,7 @@ class PowerStationController extends AdminController
      *
      * @var string
      */
-    protected $title = 'PowerStation';
+    protected $title = 'Power Stations';
 
     /**
      * Make a grid builder.
@@ -26,14 +28,18 @@ class PowerStationController extends AdminController
     {
         $grid = new Grid(new PowerStation());
 
-        $grid->column('id', __('Id'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('administrator_id', __('Administrator id'));
+        $grid->column('id', __('#'));
         $grid->column('name', __('Name'));
-        $grid->column('address', __('Address'));
-        $grid->column('details', __('Details'));
-        $grid->column('photo', __('Photo'));
+        $grid->column('administrator_id', __('Manager'))
+            ->display(function ($userId) {
+                $u = Administrator::find($userId);
+                if (!$u)
+                    return "-";
+                return $u->name;
+            })->sortable();
+
+        $grid->column('address', __('Tanks'));
+        $grid->column('details', __('Engines'));
 
         return $grid;
     }
@@ -49,13 +55,22 @@ class PowerStationController extends AdminController
         $show = new Show(PowerStation::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-        $show->field('administrator_id', __('Administrator id'));
+        $show->field('created_at', __('Created at'))
+        ->as(function ($item) {
+            return Carbon::parse($item)->diffForHumans();
+        });
+        $show->field('administrator_id', __('Administrator id'))
+        ->as(function ($userId) {
+            $u = Administrator::find($userId);
+            if (!$u)
+                return "-";
+            return $u->name;
+        });
+
         $show->field('name', __('Name'));
         $show->field('address', __('Address'));
         $show->field('details', __('Details'));
-        $show->field('photo', __('Photo'));
+        $show->field('photo', __('Photo'))->image();
 
         return $show;
     }
@@ -68,12 +83,14 @@ class PowerStationController extends AdminController
     protected function form()
     {
         $form = new Form(new PowerStation());
-
-        $form->number('administrator_id', __('Administrator id'));
-        $form->textarea('name', __('Name'));
-        $form->textarea('address', __('Address'));
+        $form->text('name', __('Power Station Name'))
+            ->required();
+        $form->select('administrator_id', __('Manager'))
+            ->options(Administrator::all()->pluck('name', 'id'))
+            ->required();
+        $form->text('address', __('Address'));
         $form->textarea('details', __('Details'));
-        $form->textarea('photo', __('Photo'));
+        $form->image('photo', __('Photo'));
 
         return $form;
     }

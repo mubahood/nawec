@@ -1,6 +1,6 @@
 <?php
 
-use App\Admin\Controllers\PowerStationController;
+
 use Illuminate\Routing\Router;
 
 Admin::routes();
@@ -14,5 +14,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('power-stations', PowerStationController::class);
-
+    $router->resource('tanks', TankController::class);
+    $router->resource('engines', EngineController::class);
 });
