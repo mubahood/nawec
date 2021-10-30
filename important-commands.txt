@@ -4,9 +4,11 @@ php artisan migrate
 
 
 php artisan make:migration create_power_stations_table
+php artisan make:migration create_engines_table
 
 
 php artisan make:migration create_import_export_permits_table
+php artisan make:migration create_tanks_table
 
 Encore\Admin\Auth\Database\Administrator::class,
 php artisan admin:make FormSr4Controller --model=App\FormSr4
@@ -14,7 +16,7 @@ php artisan admin:make FormSr4Controller --model=App\FormSr4
 php artisan admin:controller --model=App\FormSr4
 php artisan admin:make FormSr4Controller --model=App\FormSr4
 
-php artisan admin:make PowerStationController --model=App\\Models\\PowerStation
+php artisan admin:make EngineController --model=App\\Models\\Engine
 
 
-php artisan make:model PowerStation
+php artisan make:model Tank
