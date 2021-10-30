@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0a54f582ea0047868a39a0a61971638a1aa45bae',
+        'reference' => '00c787d443eb8f5292605c8f6c4a21509bbe630d',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -122,12 +122,12 @@
             'dev_requirement' => false,
         ),
         'encore/laravel-admin' => array(
-            'pretty_version' => 'v2.0.0-beta5',
-            'version' => '2.0.0.0-beta5',
+            'pretty_version' => 'v1.8.14',
+            'version' => '1.8.14.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../encore/laravel-admin',
             'aliases' => array(),
-            'reference' => '6f8c81bb46ea698cfb76c06166d74519c0a98217',
+            'reference' => 'cb28d1f0f072f9cadb1589ea1a7dcf39e0fae413',
             'dev_requirement' => false,
         ),
         'facade/flare-client-php' => array(
@@ -436,7 +436,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0a54f582ea0047868a39a0a61971638a1aa45bae',
+            'reference' => '00c787d443eb8f5292605c8f6c4a21509bbe630d',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

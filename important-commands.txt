@@ -18,8 +18,3 @@ php artisan admin:make PowerStationController --model=App\\Models\\PowerStation
 
 
 php artisan make:model PowerStation
-php artisan make:model FormSr6
-php artisan make:model FormQds
-php artisan make:model CropVariety
-php artisan make:model ImportExportPermit
-php artisan make:model ImportExportPermitsHasCrops

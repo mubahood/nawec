@@ -2,7 +2,7 @@
 
 namespace Encore\Admin\Console;
 
-use Encore\Admin\Models\Menu;
+use Encore\Admin\Auth\Database\Menu;
 use Illuminate\Console\Command;
 use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
@@ -55,7 +55,8 @@ class GenerateMenuCommand extends Command
                 && !Str::startsWith($uri, 'admin/auth/')
                 && !Str::endsWith($uri, '/create')
                 && !Str::contains($uri, '{')
-                && in_array('GET', $route->methods());
+                && in_array('GET', $route->methods())
+                && !in_array(substr($route->uri(), strlen('admin/')), config('admin.menu_exclude'));
         })
             ->map(function (Route $route) {
                 $uri = substr($route->uri(), strlen('admin/'));

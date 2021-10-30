@@ -324,7 +324,7 @@ class Field implements Renderable
             </div>
             <span class="mailbox-attachment-size">
               {$size}&nbsp;
-              <a href="{$url}" class="btn btn-default btn-xs float-right" target="_blank" $download><i class="fa fa-cloud-download"></i></a>
+              <a href="{$url}" class="btn btn-default btn-xs pull-right" target="_blank" $download><i class="fa fa-cloud-download"></i></a>
             </span>
       </div>
     </li>
@@ -400,7 +400,11 @@ HTML;
         $field = $this;
 
         return $this->unescape()->as(function ($value) use ($field) {
-            $content = json_decode($value, true);
+            if (is_string($value)) {
+                $content = json_decode($value, true);
+            } else {
+                $content = $value;
+            }
 
             if (json_last_error() == 0) {
                 $field->border = false;
@@ -466,16 +470,6 @@ HTML;
     public function unescape()
     {
         return $this->setEscape(false);
-    }
-
-    /**
-     * @return $this
-     */
-    public function noBorder()
-    {
-        $this->border = false;
-
-        return $this;
     }
 
     /**

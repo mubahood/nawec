@@ -3,10 +3,10 @@
 namespace App\Admin\Controllers;
 
 use App\Models\PowerStation;
+use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
-use Encore\Admin\Http\Controllers\AdminController;
+use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use Encore\Admin\Table;
 
 class PowerStationController extends AdminController
 {
@@ -18,24 +18,24 @@ class PowerStationController extends AdminController
     protected $title = 'PowerStation';
 
     /**
-     * Make a table builder.
+     * Make a grid builder.
      *
-     * @return Table
+     * @return Grid
      */
-    protected function table()
+    protected function grid()
     {
-        $table = new Table(new PowerStation());
+        $grid = new Grid(new PowerStation());
 
-        $table->column('id', __('Id'));
-        $table->column('created_at', __('Created at'));
-        $table->column('updated_at', __('Updated at'));
-        $table->column('administrator_id', __('Administrator id'));
-        $table->column('name', __('Name'));
-        $table->column('address', __('Address'));
-        $table->column('details', __('Details'));
-        $table->column('photo', __('Photo'));
+        $grid->column('id', __('Id'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
+        $grid->column('administrator_id', __('Administrator id'));
+        $grid->column('name', __('Name'));
+        $grid->column('address', __('Address'));
+        $grid->column('details', __('Details'));
+        $grid->column('photo', __('Photo'));
 
-        return $table;
+        return $grid;
     }
 
     /**
