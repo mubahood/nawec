@@ -9,6 +9,8 @@ php artisan make:migration create_engines_table
 
 php artisan make:migration create_import_export_permits_table
 php artisan make:migration create_tanks_table
+php artisan make:migration create_contracts_table
+php artisan make:migration create_contract_records_table
 
 Encore\Admin\Auth\Database\Administrator::class,
 php artisan admin:make FormSr4Controller --model=App\FormSr4
@@ -16,7 +18,8 @@ php artisan admin:make FormSr4Controller --model=App\FormSr4
 php artisan admin:controller --model=App\FormSr4
 php artisan admin:make FormSr4Controller --model=App\FormSr4
 
-php artisan admin:make EngineController --model=App\\Models\\Engine
+php artisan admin:make ContractController --model=App\\Models\\ContractRecords
+php artisan admin:make ContractRecordController --model=App\\Models\\ContractRecord
 
 
-php artisan make:model Tank
+php artisan make:model ContractRecord

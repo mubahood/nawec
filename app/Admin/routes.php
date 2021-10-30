@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Routing\Router;
 
 Admin::routes();
@@ -16,4 +15,6 @@ Route::group([
     $router->resource('power-stations', PowerStationController::class);
     $router->resource('tanks', TankController::class);
     $router->resource('engines', EngineController::class);
+    $router->resource('contracts', ContractController::class);
+    $router->resource('contract-records', ContractRecordController::class);
 });

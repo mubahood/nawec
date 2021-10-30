@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\Engine;
 use App\Models\PowerStation;
+use Carbon\Carbon;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -16,7 +17,7 @@ class EngineController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Engine';
+    protected $title = 'Engines';
 
     /**
      * Make a grid builder.
@@ -27,12 +28,16 @@ class EngineController extends AdminController
     {
         $grid = new Grid(new Engine());
 
-        $grid->column('id', __('Id'));
-        $grid->column('power_station_id', __('Power station id'));
-        $grid->column('name', __('Name'));
-        $grid->column('details', __('Details'));
-        $grid->column('photo', __('Photo'));
-
+        $grid->column('id', __('#'));
+        $grid->column('power_station_id', __('Power station'))
+            ->display(function ($userId) {
+                $u = PowerStation::find($userId);
+                if (!$u)
+                    return "-";
+                return $u->name;
+            })
+            ->sortable();
+        $grid->column('name', __('Tank Name'));
         return $grid;
     }
 
@@ -46,13 +51,22 @@ class EngineController extends AdminController
     {
         $show = new Show(Engine::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-        $show->field('power_station_id', __('Power station id'));
+        $show->field('power_station_id', __('Power station id'))
+        ->as(function ($userId) {
+            $u = PowerStation::find($userId);
+            if (!$u)
+                return "-";
+            return $u->name;
+        });
+
         $show->field('name', __('Name'));
         $show->field('details', __('Details'));
-        $show->field('photo', __('Photo'));
+        $show->field('photo', __('Photo'))->image();
+        $show->field('id', __('Id'));
+        $show->field('created_at', __('Created'))
+            ->as(function ($item) {
+                return Carbon::parse($item)->diffForHumans();
+            });
 
         return $show;
     }
@@ -67,12 +81,13 @@ class EngineController extends AdminController
         $form = new Form(new Engine());
 
         $form->text('name', __('Name'))
-        ->required();
+            ->required();
         $form->select('power_station_id', __('Power station'))
-        ->options(PowerStation::all()->pluck('name', 'id'))
-        ->required();
+            ->options(PowerStation::all()->pluck('name', 'id'))
+            ->required();
+        $form->image('photo', __('Photo'));
         $form->textarea('details', __('Details'));
-        
+
         return $form;
     }
 }

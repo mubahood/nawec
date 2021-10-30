@@ -543,6 +543,8 @@ class ComposerStaticInitdcf04bfa0fa314cc280f84f096bc3e7d
 
     public static $classMap = array (
         'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
+        'App\\Admin\\Controllers\\ContractController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ContractController.php',
+        'App\\Admin\\Controllers\\EngineController' => __DIR__ . '/../..' . '/app/Admin/Controllers/EngineController.php',
         'App\\Admin\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ExampleController.php',
         'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
         'App\\Admin\\Controllers\\PowerStationController' => __DIR__ . '/../..' . '/app/Admin/Controllers/PowerStationController.php',
@@ -559,6 +561,8 @@ class ComposerStaticInitdcf04bfa0fa314cc280f84f096bc3e7d
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Contract' => __DIR__ . '/../..' . '/app/Models/Contract.php',
+        'App\\Models\\Engine' => __DIR__ . '/../..' . '/app/Models/Engine.php',
         'App\\Models\\PowerStation' => __DIR__ . '/../..' . '/app/Models/PowerStation.php',
         'App\\Models\\Tank' => __DIR__ . '/../..' . '/app/Models/Tank.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

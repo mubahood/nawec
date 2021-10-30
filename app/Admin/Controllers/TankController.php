@@ -38,14 +38,14 @@ class TankController extends AdminController
         })
         ->sortable(); 
         $grid->column('name', __('Tank Name'))
-        ->sortable();
+            ->sortable();
         $grid->column('fuel_type', __('Fuel type'))
-        ->sortable();
+            ->sortable();
         $grid->column('capacity', __('Capacity'))
-        ->display(function ($item) { 
-            return number_format($item);
-        })
-        ->sortable();
+            ->display(function ($item) {
+                return number_format($item);
+            })
+            ->sortable();
 
         return $grid;
     }
@@ -60,26 +60,26 @@ class TankController extends AdminController
     {
         $show = new Show(Tank::findOrFail($id));
 
-      
+
         $show->field('name', __('Name'));
         $show->field('power_station_id', __('Power station id'))
-        ->as(function ($userId) {
-            $u = PowerStation::find($userId);
-            if (!$u)
-                return "-";
-            return $u->name;
-        });
+            ->as(function ($userId) {
+                $u = PowerStation::find($userId);
+                if (!$u)
+                    return "-";
+                return $u->name;
+            });
         $show->field('fuel_type', __('Fuel type'));
         $show->field('capacity', __('Capacity'))
-        ->as(function ($item) {
-            return number_format($item);
-        });
+            ->as(function ($item) {
+                return number_format($item);
+            });
         $show->field('details', __('Details'));
         $show->field('id', __('Id'));
         $show->field('created_at', __('Created at'))
-        ->as(function ($item) {
-            return Carbon::parse($item)->diffForHumans();
-        });
+            ->as(function ($item) {
+                return Carbon::parse($item)->diffForHumans();
+            });
         return $show;
     }
 

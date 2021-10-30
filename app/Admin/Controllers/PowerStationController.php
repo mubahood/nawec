@@ -59,7 +59,7 @@ class PowerStationController extends AdminController
         ->as(function ($item) {
             return Carbon::parse($item)->diffForHumans();
         });
-        $show->field('administrator_id', __('Administrator id'))
+        $show->field('administrator_id', __('Station manager'))
         ->as(function ($userId) {
             $u = Administrator::find($userId);
             if (!$u)
