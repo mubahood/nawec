@@ -17,4 +17,5 @@ Route::group([
     $router->resource('engines', EngineController::class);
     $router->resource('contracts', ContractController::class);
     $router->resource('contract-records', ContractRecordController::class);
+    $router->resource('stock-records', StockRecordController::class);
 });

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Admin\\Controllers\\AuthController' => $baseDir . '/app/Admin/Controllers/AuthController.php',
     'App\\Admin\\Controllers\\ContractController' => $baseDir . '/app/Admin/Controllers/ContractController.php',
+    'App\\Admin\\Controllers\\ContractRecordController' => $baseDir . '/app/Admin/Controllers/ContractRecordController.php',
     'App\\Admin\\Controllers\\EngineController' => $baseDir . '/app/Admin/Controllers/EngineController.php',
     'App\\Admin\\Controllers\\ExampleController' => $baseDir . '/app/Admin/Controllers/ExampleController.php',
     'App\\Admin\\Controllers\\HomeController' => $baseDir . '/app/Admin/Controllers/HomeController.php',
@@ -26,6 +27,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Contract' => $baseDir . '/app/Models/Contract.php',
+    'App\\Models\\ContractRecord' => $baseDir . '/app/Models/ContractRecord.php',
     'App\\Models\\Engine' => $baseDir . '/app/Models/Engine.php',
     'App\\Models\\PowerStation' => $baseDir . '/app/Models/PowerStation.php',
     'App\\Models\\Tank' => $baseDir . '/app/Models/Tank.php',

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ContractRecord extends Model
 {
     use HasFactory;
+
+    public function stock_records()
+    {
+        return $this->hasMany(StockRecord::class, 'contract_record_id');
+    }
 }

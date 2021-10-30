@@ -544,6 +544,7 @@ class ComposerStaticInitdcf04bfa0fa314cc280f84f096bc3e7d
     public static $classMap = array (
         'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
         'App\\Admin\\Controllers\\ContractController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ContractController.php',
+        'App\\Admin\\Controllers\\ContractRecordController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ContractRecordController.php',
         'App\\Admin\\Controllers\\EngineController' => __DIR__ . '/../..' . '/app/Admin/Controllers/EngineController.php',
         'App\\Admin\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ExampleController.php',
         'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
@@ -562,6 +563,7 @@ class ComposerStaticInitdcf04bfa0fa314cc280f84f096bc3e7d
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Contract' => __DIR__ . '/../..' . '/app/Models/Contract.php',
+        'App\\Models\\ContractRecord' => __DIR__ . '/../..' . '/app/Models/ContractRecord.php',
         'App\\Models\\Engine' => __DIR__ . '/../..' . '/app/Models/Engine.php',
         'App\\Models\\PowerStation' => __DIR__ . '/../..' . '/app/Models/PowerStation.php',
         'App\\Models\\Tank' => __DIR__ . '/../..' . '/app/Models/Tank.php',

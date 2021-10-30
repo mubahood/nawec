@@ -33,10 +33,9 @@ class ContractController extends AdminController
      
 
         $grid->actions(function ($actions) {
-
-            $actions->add(new Comments());
-
+            $actions->add(new Comments($actions->row->id.""));
         });
+        
         
 
         $grid->column('id', __('#'));
@@ -108,6 +107,7 @@ class ContractController extends AdminController
     protected function form()
     {
         $form = new Form(new Contract());
+        
 
         $items = Administrator::all();
         $_items = [];
@@ -150,12 +150,15 @@ class ContractController extends AdminController
 class Comments extends RowAction
 {
     public $name = 'Add record';
+    public $id = '';
 
-    /**
-     * @return  string
-     */
-    public function href()
+    public function __construct($id)
     {
-        return "/your/uri/path";
+        $this->id = $id;
+
+    }
+    public function href()
+    { 
+        return admin_url('/contract-records/create?contract_id='.$this->id);
     }
 }
